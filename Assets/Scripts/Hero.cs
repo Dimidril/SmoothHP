@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField] private HelthBar _helthBar;
     [SerializeField] private float _maxHelthPoints = 100f;
     [SerializeField] private float _helthPoints = 50f;
 
+    public delegate void ChangeHP(float ratioOfRemainderToTheMaximumHP);
+    public event ChangeHP HPChanged;
+
     private void Start()
     {
-        _helthBar.SetBarValue(_helthPoints / _maxHelthPoints);
+        HPChanged?.Invoke(_helthPoints / _maxHelthPoints);
     }
 
     public void TakeDamage(float damage)
@@ -23,7 +26,7 @@ public class Hero : MonoBehaviour
             _helthPoints = 0;
             Die();
         }
-        _helthBar.SetBarValue(_helthPoints / _maxHelthPoints);
+        HPChanged?.Invoke(_helthPoints / _maxHelthPoints);
     }
 
     private void Die()
