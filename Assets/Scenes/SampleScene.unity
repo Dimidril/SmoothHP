@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03080bbca65ac0c4bb3e1ca3edc26506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _livingBeing: {fileID: 526987461}
   _smoothTime: 2
 --- !u!1 &321611370
 GameObject:
@@ -623,7 +624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a99cd5b34d27946b4b3be41cec521f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _helthBar: {fileID: 279817486}
   _maxHelthPoints: 55
   _helthPoints: 31
 --- !u!65 &526987462
